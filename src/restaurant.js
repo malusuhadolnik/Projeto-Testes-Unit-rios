@@ -54,11 +54,9 @@
 
 */
 
-// PASSO 1: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato: 
-//  { fetchMenu: () => objetoPassadoPorParametro }.
+// PASSO 1: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato:   //  { fetchMenu: () => objetoPassadoPorParametro }.
 //
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
-
 //------------------------------------------------------------------------------------------
 
 // PASSO 2: Adicione ao objeto retornado por `createMenu()` uma chave de nome `consumption` que, como valor inicial, tem um array vazio.
@@ -93,6 +91,78 @@
 // - retornará o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+// Passo 3
+// function addStringtoComsumption(string) {
+//   this.consumption.push(string);
+//   return this;
+// }
+// Passo 1
+let arrayConsumo = [];
+
+const createMenu = (objectMenu) => {
+    const restaurant = {
+    fetchMenu: objectMenu,
+    consumption: arrayConsumo,
+    order: (string) => arrayConsumo.push(string), 
+  };
+  return restaurant;
+}; 
+
+let objetoRetornado = createMenu({ food: {}, drink: {} });
+
+// Passo 4 
+const chavesDrink = Object.keys(objetoRetornado.fetchMenu.drink);
+const chavesFood = Object.keys(objetoRetornado.fetchMenu.food);
+const catchaves = chavesDrink.concat(chavesFood);
+const arrayComsumption = objetoRetornado.consumption; 
+
+// passo 4.1: verificar quais itens de fetchMenu dão match com os pedidos em consumption
+const matchConsumption = () => { 
+  let matchesMenu = [];
+  for (let i = 0; i < catchaves.length; i += 1) {
+        arrayComsumption.forEach((element) => {
+          if (catchaves[i] === element) matchesMenu.push(catchaves[i]);
+      });
+  }
+ return matchesMenu;
+};
+
+let match = matchConsumption();
+const entriesFood = Object.entries(objetoRetornado.fetchMenu.food);
+const entriesDrink = Object.entries(objetoRetornado.fetchMenu.drink);
+const entriesMenu = entriesFood.concat(entriesDrink);
+
+// passo 4.2: pegar os valores de fetchmenu das chaves que deram match com consumption (variável match)
+const pegamatches = () => {
+  let armazena = [];
+   for (let i = 0; i < entriesMenu.length; i += 1) {
+         match.forEach((element) => {
+           if (entriesMenu[i].includes(element)) armazena.push(entriesMenu[i]);
+       });
+   }
+  return armazena;
+};
+let arrayDematches = pegamatches();
+
+const getPrices = () => { // código inspirado no tutorial: https://www.samanthaming.com/tidbits/76-converting-object-to-array/
+  let storage = [];
+  arrayDematches.forEach(([key, value]) => {
+  storage.push(value);
+  });
+  return storage;
+};
+let pricesStorage = getPrices();
+
+// Passo 4.3: calcular valor total
+const valorTotal = () => { 
+  let armazenaSoma = 0; 
+  for (let index = 0; index < pricesStorage.length; index += 1) {
+    armazenaSoma += pricesStorage[index];
+  }
+  return Math.round(armazenaSoma + (armazenaSoma * 0.1));
+};
+
+objetoRetornado.pay = valorTotal(); // teoricamente add nova função à chave `order`.
+console.log(objetoRetornado);
 
 module.exports = createMenu;
