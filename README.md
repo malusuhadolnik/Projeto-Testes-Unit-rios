@@ -1,13 +1,14 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Projeto Testes Unitários
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Sobre
+Este projeto foi desenvolvido durante o Módulo 1 - Fundamentos do curso de Desenvolvimento Web da Trybe. 
+
+Nele foram desenvolvidos testes e funções utilizando a abordagem de desenvolvimento orientado a testes. Os testes unitários foram escritos utilizando o módulo Jest do NodeJS para verificar o correto funcionamento das funções; enquanto as funções foram desenvolvidas de forma a atender os testes já implementados.
+
+Os arquivos desenvolvidos por mim estão dentro da pasta src e tests.
+
+Os demais foram desenvolvidos pelo time da Trybe.
+
+## Técnologias usadas
+ Jest, Javascript.
