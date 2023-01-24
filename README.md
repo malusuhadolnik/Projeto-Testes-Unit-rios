@@ -10,5 +10,5 @@ Os arquivos desenvolvidos por mim estão dentro da pasta src e tests.
 
 Os demais foram desenvolvidos pelo time da Trybe.
 
-## Técnologias usadas
+## Tecnologias usadas
  Jest, Javascript.
